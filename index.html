@@ -1,0 +1,73 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .footer {
+            background: black;
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .logotype {
+            margin: 0 10px;
+        }
+        ul {
+            margin-left: auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            list-style: none;
+        }
+        li {
+            display: inline;
+            color: white;
+            padding: 0 10px;
+        }
+        .logout {
+
+        }
+        .slider {
+            position: relative;
+            width: 800px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        .slider img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="main-block">
+    <div class="footer">
+        <img src="https://www.python.org/static/img/python-logo.png" class="logotype">
+        <ul>
+            <li><div class="active-user">{{ form.username.data }}</div></li>
+            <li><div class="logout"><a href="/logout">Log out</a></div></li>
+        </ul>
+    </div>
+    <div class="slider">
+        <img src="https://w7.pngwing.com/pngs/763/868/png-transparent-kitten-siamese-cat-veterinarian-tonkinese-cat-kitten-cat-like-mammal-animals-carnivoran.png" alt="Slider Image" id="slider-image">
+    </div>
+</div>
+<script>
+    const sliderImages = ["https://w7.pngwing.com/pngs/763/868/png-transparent-kitten-siamese-cat-veterinarian-tonkinese-cat-kitten-cat-like-mammal-animals-carnivoran.png", "https://w7.pngwing.com/pngs/798/514/png-transparent-cat-kitten-computer-icons-cat-mammal-cat-like-mammal-animals.png", "https://w7.pngwing.com/pngs/874/935/png-transparent-american-bobtail-kitten-munchkin-cat-dog-siamese-cat-kitten-mammal-animals-cat-like-mammal.png"];
+    let currentImage = 0;
+    const slider = document.querySelector(".slider img");
+
+    function changeSliderImage() {
+        currentImage++;
+        if (currentImage >= sliderImages.length) {
+            currentImage = 0;
+        }
+        slider.src = sliderImages[currentImage];
+    }
+
+    setInterval(changeSliderImage, 5000);
+</script>
+</body>
+</html>
